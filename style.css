@@ -2,7 +2,7 @@
   margin: 0;
   font-size: 15px;
   color: var(--main-heading);
-  text-align: center;
+  box-sizing: border-box;
 }
 
 :root {
@@ -23,12 +23,16 @@
 
 body {
   background-color: var(--main-background);
+}
+
+.display-container {
   display: flex;
   flex-direction: column;
 }
 /* Header */
 .img-box {
   position: relative;
+  margin: auto;
   margin-top: 6%;
   height: 275px;
 }
@@ -48,9 +52,14 @@ body {
   border-radius: 10px 10px 0 0;
 }
 
-.img-box__thumbnail {
+.img-box__thumbnail-mobile {
   width: 375px;
   border-radius: 10px 10px 0 0;
+}
+
+.img-box__thumbnail-desktop {
+  text-align: center;
+  display: none;
 }
 
 /* Main */
@@ -68,6 +77,7 @@ h1 {
   font-size: 2em;
   font-family: var(--inter);
   font-weight: 700;
+  text-align: center;
 }
 
 .h1__highlight {
@@ -83,6 +93,7 @@ h1 {
   font-weight: 400;
   color: var(--main-paragraph);
   line-height: 25px;
+  text-align: center;
 }
 
 .card__info-data {
@@ -91,6 +102,7 @@ h1 {
   flex-direction: column;
   font-family: var(--lexend-deca);
   font-weight: 400;
+  text-align: center;
 }
 
 .card__info-data b {
@@ -103,6 +115,10 @@ h1 {
 
 /* FOOTER */
 
+footer {
+  margin-top: 3%;
+}
+
 .attribution {
   font-size: 11px;
   text-align: center;
@@ -113,3 +129,80 @@ h1 {
 
 /* MOBILE: 375px */
 /* DESKTOP: 1440px */
+
+@media screen and (min-width: 800px) {
+  body {
+    display: block;
+  }
+
+  .container {
+    border-radius: 10px 0 0 10px;
+  }
+
+  .display-container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    margin-top: 6%;
+  }
+
+  /* HEADER */
+  .img-box {
+    margin: 0;
+    margin-top: 0;
+    height: 446px;
+  }
+
+  .img-box__thumbnail-mobile {
+    display: none;
+  }
+
+  .img-box__thumbnail-desktop {
+    display: block;
+    border-radius: 0 10px 10px 0;
+  }
+
+  .img-box__cover {
+    top: -446px;
+    height: 100%;
+    width: 100%;
+    border-radius: 0 10px 10px 0;
+  }
+
+  /* MAIN */
+  .container {
+    height: 446px;
+    width: 540px;
+  }
+
+  h1 {
+    margin-top: 60px;
+    margin-left: 80px;
+    margin-right: 80px;
+    text-align: unset;
+  }
+
+  .card__tittle {
+    margin: 30px 80px;
+    text-align: unset;
+  }
+
+  .card__info {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: flex-start;
+  }
+
+  .card__info-data {
+    margin-left: 30px;
+    margin-right: 30px;
+    text-align: left;
+  }
+
+  .card__info-data:nth-child(1) {
+    margin-left: 80px;
+  }
+
+  /* FOOTER */
+}
